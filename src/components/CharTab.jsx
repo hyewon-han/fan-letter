@@ -3,8 +3,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { theme } from "../GlobalStyle";
 
-function CharTab() {
-  const [char, setChar] = useState("woody");
+function CharTab({ char, setChar }) {
   const [char1, setChar1] = useState("true");
   const [char2, setChar2] = useState("false");
   const [char3, setChar3] = useState("false");
@@ -70,9 +69,8 @@ const StBtn = styled.button`
   width: 100px;
   border: none;
   transition: all 0.2s ease-in-out;
-  background-color: ${(props) => {
-    return props.clicked === "true" ? theme.yellow : theme.blue;
-  }};
+  background-color: ${(props) =>
+    props.clicked === "true" ? theme.yellow : theme.blue};
   color: ${(props) => (props.clicked === "true" ? "black" : "white")};
   padding: 10px;
   border-radius: 10px;
