@@ -16,6 +16,7 @@ export const theme = {
   darkPink: "#ab6c82",
   purple: "#685d79",
   blue: "#475c7a",
+  boxShadow: "0px 8px 16px 0px #00000033",
 };
 
 export default GlobalStyle;

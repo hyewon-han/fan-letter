@@ -1,7 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../GlobalStyle";
+import Button from "../components/Button";
 
 function Detail({ data, setData }) {
   const { id } = useParams();
@@ -10,74 +11,53 @@ function Detail({ data, setData }) {
   const [textarea, setTextarea] = useState(comment.content);
   const navigate = useNavigate();
 
+  const updateComment = () => {
+    if (textarea === comment.content) alert("수정사항이 없습니다.");
+    else {
+      const result = window.confirm("이대로 수정하시겠습니까?");
+      if (result) {
+        data.find((item) => item.id === id).content = textarea;
+        navigate("/");
+      } else return;
+    }
+  };
+
+  const deleteComment = () => {
+    const result = window.confirm("정말 삭제하시겠습니까?");
+    if (result) {
+      setData(data.filter((item) => item.id !== id));
+      navigate("/");
+    } else return;
+  };
   return (
-    <>
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        Home
-      </button>
+    <Wrap>
       <CommentBox>
-        <StImg src={comment.avatar} />
-        <div>
-          <p>{comment.name}</p>
-          <p>To. {comment.writedTo}</p>
-          <p>{comment.createdAt}</p>
+        <StDiv>
+          <StImg src={comment.avatar} />
+          <div>
+            <p>{comment.name}</p>
+            <p>To. {comment.writedTo}</p>
+            <p>{comment.createdAt}</p>
+          </div>
           <StTextarea
             type="text"
             value={textarea}
             disabled={isInputDisabled}
-            cols="40"
-            rows="10"
-            onChange={(e) => {
-              setTextarea(e.target.value);
-            }}
+            onChange={(e) => setTextarea(e.target.value)}
           />
-        </div>
-        <div>
+        </StDiv>
+        <Btns>
           {isInputDisabled ? (
-            <button
-              onClick={() => {
-                setIsInputDisabled(false);
-              }}
-            >
-              수정
-            </button>
-          ) : null}
-          {isInputDisabled ? null : (
-            <button
-              onClick={() => {
-                if (textarea === comment.content) alert("수정사항이 없습니다.");
-                else {
-                  const result = window.confirm("이대로 수정하시겠습니까?");
-                  if (result) {
-                    data.find((item) => item.id === id).content = textarea;
-                    navigate("/");
-                  } else return;
-                }
-              }}
-            >
-              수정완료
-            </button>
+            <>
+              <Button value="수정" onClick={() => setIsInputDisabled(false)} />
+              <Button value="삭제" onClick={deleteComment} />
+            </>
+          ) : (
+            <Button value="수정완료" onClick={updateComment} />
           )}
-          {isInputDisabled ? (
-            <button
-              onClick={() => {
-                const result = window.confirm("정말 삭제하시겠습니까?");
-                if (result) {
-                  setData(data.filter((item) => item.id !== id));
-                  navigate("/");
-                } else return;
-              }}
-            >
-              삭제
-            </button>
-          ) : null}
-        </div>
+        </Btns>
       </CommentBox>
-    </>
+    </Wrap>
   );
 }
 
@@ -85,18 +65,45 @@ export default Detail;
 
 const CommentBox = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
   margin: 10px;
-  background-color: ${theme.blue};
+  background-color: ${theme.pink};
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: ${theme.boxShadow};
 `;
 
 const StImg = styled.img`
   width: 100px;
   height: 100px;
+  border-radius: 50%;
+  box-shadow: ${theme.boxShadow};
 `;
 
 const StTextarea = styled.textarea`
-  /* width: 200px;
+  width: 300px;
   height: 200px;
-  &:disabled {
-  } */
+  resize: none;
+`;
+
+const Wrap = styled.div`
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StDiv = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+const Btns = styled.div`
+  width: 300px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
 `;

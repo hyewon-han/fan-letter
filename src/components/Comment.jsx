@@ -9,7 +9,7 @@ function Comment({ item }) {
       <CommentBox>
         <StImg src={item.avatar} />
         <div>
-          <p>{item.name}</p>
+          <StP>{item.name}</StP>
           <p>{item.createdAt}</p>
           <p>
             {item.content.length > 40
@@ -26,11 +26,21 @@ export default Comment;
 
 const CommentBox = styled.div`
   display: flex;
+  gap: 10px;
   margin: 10px;
-  background-color: ${theme.blue};
+  background-color: ${theme.pink};
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: ${theme.boxShadow};
 `;
 
 const StImg = styled.img`
   width: 100px;
   height: 100px;
+  border-radius: 50%;
+  box-shadow: ${theme.boxShadow};
+`;
+
+const StP = styled.p`
+  font-weight: 700;
 `;

@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 function Layout({ children }) {
   return (
     <div>
       <StHeader>
-        <span>Fan Letter</span>
+        <Link to="/">
+          <span>Fan Letter to Toy Story</span>
+        </Link>
       </StHeader>
       <StLayout>{children}</StLayout>
       <StFooter>
@@ -25,6 +28,8 @@ const StHeader = styled.header`
   align-items: center;
   justify-content: center;
   color: white;
+  margin-bottom: 40px;
+  font-size: 22px;
 `;
 
 const StFooter = styled.footer`
@@ -40,7 +45,7 @@ const StFooter = styled.footer`
 const StLayout = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   min-height: 90vh;
 `;

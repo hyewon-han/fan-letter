@@ -14,11 +14,21 @@ function Form({ data, setData }) {
     const selectedChar = selectRef.current.value;
     return selectedChar;
   };
+  const formatDate = () => {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+    return `${year}.${month}.${day}  ${hours}:${minutes}:${seconds}`;
+  };
+
   const submitComment = (e) => {
     e.preventDefault();
-    const date = Date.now();
     const commentObj = {
-      createdAt: date,
+      createdAt: formatDate(),
       name,
       avatar:
         "https://tse2.mm.bing.net/th?id=OIP.Nen6j3vBZdl8g8kzNfoEHQAAAA&pid=Api&P=0&h=220",
@@ -83,6 +93,7 @@ const StForm = styled.form`
   align-items: center;
   gap: 15px;
   border-radius: 10px;
+  box-shadow: ${theme.boxShadow};
 `;
 
 const StInput = styled.input`

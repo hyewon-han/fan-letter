@@ -9,53 +9,31 @@ function CharTab({ char, setChar }) {
   };
   return (
     <StDiv>
-      <StBtn
+      <Button
+        value="WOODY"
         onClick={() => selectChar("woody")}
         clicked={(char === "woody").toString()}
-      >
-        WOODY
-      </StBtn>
-      <StBtn
+      />
+      <Button
+        value="BUZZ"
         onClick={() => selectChar("buzz")}
         clicked={(char === "buzz").toString()}
-      >
-        BUZZ
-      </StBtn>
-      <StBtn
+      />
+      <Button
+        value="FORKY"
         onClick={() => selectChar("forky")}
         clicked={(char === "forky").toString()}
-      >
-        FORKY
-      </StBtn>
-      <StBtn
+      />
+      <Button
+        value="BOPEEP"
         onClick={() => selectChar("bopeep")}
         clicked={(char === "bopeep").toString()}
-      >
-        BOPEEP
-      </StBtn>
+      />
     </StDiv>
   );
 }
 
 export default CharTab;
-
-const StBtn = styled.button`
-  height: 50px;
-  width: 100px;
-  border: none;
-  transition: all 0.2s ease-in-out;
-  background-color: ${(props) =>
-    props.clicked === "true" ? theme.yellow : theme.blue};
-  color: ${(props) => (props.clicked === "true" ? "black" : "white")};
-  padding: 10px;
-  border-radius: 10px;
-  font-size: 18px;
-
-  &:hover {
-    cursor: pointer;
-    filter: brightness(1.2);
-  }
-`;
 
 const StDiv = styled.div`
   padding: 15px;
@@ -63,4 +41,5 @@ const StDiv = styled.div`
   display: flex;
   gap: 15px;
   border-radius: 10px;
+  box-shadow: ${theme.boxShadow};
 `;

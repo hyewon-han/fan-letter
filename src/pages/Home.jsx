@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import CharTab from "../components/CharTab";
-import { theme } from "../GlobalStyle";
-
 import Form from "../components/Form";
 import Comment from "../components/Comment";
+import styled from "styled-components";
 
 function Home({ data, setData }) {
   const [char, setChar] = useState("woody");
@@ -19,7 +17,7 @@ function Home({ data, setData }) {
             <Comment item={item} key={item.id} />
           ))}
         {data.filter((item) => item.writedTo === char).length === 0 ? (
-          <div>코멘트를 남겨주세요!😆</div>
+          <StDiv>첫번째 코멘트를 남겨주세요! 😆</StDiv>
         ) : null}
       </div>
     </>
@@ -27,3 +25,12 @@ function Home({ data, setData }) {
 }
 
 export default Home;
+
+const StDiv = styled.div`
+  background-color: black;
+  color: white;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: 22px;
+`;
