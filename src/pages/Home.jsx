@@ -12,11 +12,11 @@ function Home({ data, setData }) {
       <Form data={data} setData={setData} />
       <div>
         {data
-          .filter((item) => item.writedTo === char)
-          .map((item) => (
-            <Comment item={item} key={item.id} />
+          .filter((comment) => comment.writedTo === char)
+          .map((comment) => (
+            <Comment comment={comment} key={comment.id} />
           ))}
-        {data.filter((item) => item.writedTo === char).length === 0 ? (
+        {data.filter((comment) => comment.writedTo === char).length === 0 ? (
           <StDiv>첫번째 코멘트를 남겨주세요! 😆</StDiv>
         ) : null}
       </div>

@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../GlobalStyle";
 
-function Comment({ item }) {
+function Comment({ comment }) {
   return (
-    <Link to={`/detail/${item.id}`}>
+    <Link to={`/detail/${comment.id}`}>
       <CommentBox>
-        <StImg src={item.avatar} />
+        <StImg src={comment.avatar} />
         <div>
-          <StP>{item.name}</StP>
-          <p>{item.createdAt}</p>
+          <StP>{comment.name}</StP>
+          <p>{comment.createdAt}</p>
           <p>
-            {item.content.length > 40
-              ? `${item.content.slice(0, 40)}...`
-              : item.content}
+            {comment.content.length > 40
+              ? `${comment.content.slice(0, 40)}...`
+              : comment.content}
           </p>
         </div>
       </CommentBox>
