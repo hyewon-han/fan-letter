@@ -1,62 +1,36 @@
 import React from "react";
 import styled from "styled-components";
-import { useState } from "react";
 import { theme } from "../GlobalStyle";
 
 function CharTab({ char, setChar }) {
-  const [char1, setChar1] = useState("true");
-  const [char2, setChar2] = useState("false");
-  const [char3, setChar3] = useState("false");
-  const [char4, setChar4] = useState("false");
+  const selectChar = (CharName) => {
+    setChar(CharName);
+  };
   return (
     <StDiv>
       <StBtn
-        onClick={() => {
-          setChar1("true");
-          setChar2("false");
-          setChar3("false");
-          setChar4("false");
-          setChar("woody");
-        }}
-        clicked={char1}
+        onClick={() => selectChar("woody")}
+        clicked={(char === "woody").toString()}
       >
         WOODY
       </StBtn>
       <StBtn
-        onClick={() => {
-          setChar1("false");
-          setChar2("true");
-          setChar3("false");
-          setChar4("false");
-          setChar("buzz");
-        }}
-        clicked={char2}
+        onClick={() => selectChar("buzz")}
+        clicked={(char === "buzz").toString()}
       >
         BUZZ
       </StBtn>
       <StBtn
-        onClick={() => {
-          setChar1("false");
-          setChar2("false");
-          setChar3("true");
-          setChar4("false");
-          setChar("forky");
-        }}
-        clicked={char3}
+        onClick={() => selectChar("forky")}
+        clicked={(char === "forky").toString()}
       >
         FORKY
       </StBtn>
       <StBtn
-        onClick={() => {
-          setChar1("false");
-          setChar2("false");
-          setChar3("false");
-          setChar4("true");
-          setChar("bopeep");
-        }}
-        clicked={char4}
+        onClick={() => selectChar("bopeep")}
+        clicked={(char === "bopeep").toString()}
       >
-        BO PEEP
+        BOPEEP
       </StBtn>
     </StDiv>
   );
