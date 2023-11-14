@@ -5,8 +5,7 @@ body {
     font-family: "Helvetica", "Arial", sans-serif;
     line-height: 1.5;
     box-sizing: border-box;
-    
-    background-image: url("https://www.hdwallpapers.in/download/toy_story_4_2019-HD.jpg");
+    background-image: url("/toy-story.jpg");
     background-size: cover;
   }
 `;

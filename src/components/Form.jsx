@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { theme } from "../GlobalStyle";
 import { v4 as uuidv4 } from "uuid";
+import Button from "./Button";
 
 function Form({ data, setData }) {
   const [name, setName] = useState("");
@@ -31,9 +32,9 @@ function Form({ data, setData }) {
   };
   return (
     <StForm onSubmit={submitComment}>
-      <div>
+      <StDiv>
         <label htmlFor="name">name</label>
-        <input
+        <StInput
           id="name"
           type="text"
           placeholder="Write your name"
@@ -44,10 +45,9 @@ function Form({ data, setData }) {
           required
           maxLength={10}
         />
-      </div>
-      <div>
+
         <label htmlFor="content">content</label>
-        <input
+        <StTextarea
           id="content"
           type="text"
           placeholder="Write your content"
@@ -56,19 +56,18 @@ function Form({ data, setData }) {
             setContent(e.target.value);
           }}
           required
-          maxLength={50}
+          maxLength={80}
         />
-      </div>
-      <div>
+
         <label htmlFor="select">Whose fan are you?</label>
-        <select id="select" onChange={selectChar} ref={selectRef}>
+        <StSelect id="select" onChange={selectChar} ref={selectRef}>
           <option value="woody">Woody</option>
           <option value="buzz">Buzz</option>
           <option value="forky">Forky</option>
           <option value="bopeep">Bopeep</option>
-        </select>
-      </div>
-      <button>Submit</button>
+        </StSelect>
+      </StDiv>
+      <Button value="Submit" />
     </StForm>
   );
 }
@@ -78,7 +77,52 @@ export default Form;
 const StForm = styled.form`
   margin-top: 15px;
   background-color: ${theme.darkPink};
-  padding: 15px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  border-radius: 10px;
+`;
+
+const StInput = styled.input`
+  width: 300px;
+  height: 20px;
+  border-radius: 10px;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  &:focus {
+    border: 1px solid ${theme.blue};
+    outline: 1px ridge ${theme.blue};
+  }
+`;
+
+const StDiv = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+`;
+
+const StTextarea = styled.textarea`
+  width: 300px;
+  height: 150px;
+  resize: none;
+  border-radius: 10px;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  &:focus {
+    border: 1px solid ${theme.blue};
+    outline: 1px ridge ${theme.blue};
+  }
+`;
+
+const StSelect = styled.select`
+  width: 300px;
+  height: 25px;
+  border-radius: 10px;
+  border: none;
+  &:focus {
+    border: 1px solid ${theme.blue};
+    outline: 1px ridge ${theme.blue};
+  }
 `;
