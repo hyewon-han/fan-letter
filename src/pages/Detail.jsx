@@ -53,7 +53,10 @@ function Detail({ data, setData }) {
               <Button value="삭제" onClick={deleteComment} />
             </>
           ) : (
-            <Button value="수정완료" onClick={updateComment} />
+            <>
+              <Button value="수정완료" onClick={updateComment} />
+              <Button value="취소" onClick={() => setIsInputDisabled(true)} />
+            </>
           )}
         </Btns>
       </CommentBox>
