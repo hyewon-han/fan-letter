@@ -13,7 +13,9 @@ function Layout({ children }) {
       </StHeader>
       <StLayout>{children}</StLayout>
       <StFooter>
-        <span>copyright &copy; Fan Letter</span>
+        <span>
+          Copyright &copy; Fan Letter to Toy Story All rights reserved
+        </span>
       </StFooter>
     </div>
   );
