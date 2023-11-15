@@ -35,7 +35,7 @@ function Detail({ data, setData }) {
         <StDiv>
           <StImg src={comment.avatar} />
           <div>
-            <p>{comment.name}</p>
+            <StP>{comment.name}</StP>
             <p>To. {comment.writedTo}</p>
             <p>{comment.createdAt}</p>
           </div>
@@ -106,4 +106,9 @@ const Btns = styled.div`
   display: flex;
   gap: 15px;
   justify-content: center;
+`;
+
+const StP = styled.p`
+  font-weight: 700;
+  font-size: 20px;
 `;
