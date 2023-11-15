@@ -2,19 +2,11 @@ import GlobalStyle from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./GlobalStyle";
 import Router from "./shared/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import fakeData from "./fakeData.json";
 
 function App() {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch("/fakeData.json");
-      const json = await response.json();
-      setData([...json]);
-    }
-    fetchData();
-  }, []);
-
+  const [data, setData] = useState(fakeData);
   return (
     <>
       <ThemeProvider theme={theme}>
