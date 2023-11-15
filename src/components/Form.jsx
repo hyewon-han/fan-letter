@@ -27,7 +27,7 @@ function Form() {
     return `${year}.${month}.${day}  ${hours}:${minutes}:${seconds}`;
   };
 
-  const submitComment = (e) => {
+  const createComment = (e) => {
     e.preventDefault();
     const commentObj = {
       createdAt: formatDate(),
@@ -43,7 +43,7 @@ function Form() {
     setContent("");
   };
   return (
-    <StForm onSubmit={submitComment}>
+    <StForm onSubmit={createComment}>
       <StDiv>
         <label htmlFor="name">name</label>
         <StInput
