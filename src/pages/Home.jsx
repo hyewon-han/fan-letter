@@ -17,7 +17,7 @@ function Home({ data, setData }) {
             <Comment comment={comment} key={comment.id} />
           ))}
         {data.filter((comment) => comment.writedTo === char).length === 0 ? (
-          <StDiv>첫번째 코멘트를 남겨주세요! 😆</StDiv>
+          <StDiv>{char} 에게 첫번째 코멘트를 남겨주세요! 😆</StDiv>
         ) : null}
       </div>
     </>
