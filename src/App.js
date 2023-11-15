@@ -2,26 +2,20 @@ import GlobalStyle from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./GlobalStyle";
 import Router from "./shared/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { Context } from "./Context";
+import fakeData from "./fakeData.json";
 
 function App() {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch("/fakeData.json");
-      const json = await response.json();
-      setData([...json]);
-    }
-    fetchData();
-  }, []);
+  const [data, setData] = useState(fakeData);
 
   return (
-    <>
+    <Context.Provider value={{ data, setData }}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Router data={data} setData={setData} />
+        <Router />
       </ThemeProvider>
-    </>
+    </Context.Provider>
   );
 }
 
