@@ -1,10 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../GlobalStyle";
 import { v4 as uuidv4 } from "uuid";
 import Button from "./Button";
+import { Context } from "../Context";
 
-function Form({ data, setData }) {
+function Form() {
+  const { data, setData } = useContext(Context);
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const id = uuidv4();
