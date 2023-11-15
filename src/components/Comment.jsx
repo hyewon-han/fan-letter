@@ -9,7 +9,7 @@ function Comment({ comment }) {
       <CommentBox>
         <StImg src={comment.avatar} />
         <div>
-          <StP>{comment.name}</StP>
+          <StSpan>{comment.name}</StSpan>
           <p>{comment.createdAt}</p>
           <p>
             {comment.content.length > 40
@@ -32,6 +32,7 @@ const CommentBox = styled.div`
   padding: 15px;
   border-radius: 10px;
   box-shadow: ${theme.boxShadow};
+  width: 450px;
 `;
 
 const StImg = styled.img`
@@ -41,6 +42,6 @@ const StImg = styled.img`
   box-shadow: ${theme.boxShadow};
 `;
 
-const StP = styled.p`
+const StSpan = styled.span`
   font-weight: 700;
 `;
