@@ -1,17 +1,20 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../GlobalStyle";
 import Button from "../components/Button";
-import { Context } from "../Context";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteData } from "../redux/modules/comment";
 
 function Detail() {
-  const { data, setData } = useContext(Context);
+  const data = useSelector((state) => state.comment);
+  const dispatch = useDispatch();
   const { id } = useParams();
   const comment = data.find((item) => item.id === id);
   const [isInputDisabled, setIsInputDisabled] = useState(true);
   const [textarea, setTextarea] = useState(comment.content);
   const navigate = useNavigate();
+
   const updateComment = () => {
     if (textarea === comment.content) alert("수정사항이 없습니다.");
     else {
@@ -26,7 +29,7 @@ function Detail() {
   const deleteComment = () => {
     const result = window.confirm("정말 삭제하시겠습니까?");
     if (result) {
-      setData(data.filter((item) => item.id !== id));
+      dispatch(deleteData(id));
       navigate("/");
     } else return;
   };

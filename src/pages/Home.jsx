@@ -1,17 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import CharTab from "../components/CharTab";
 import Form from "../components/Form";
 import Comment from "../components/Comment";
 import styled from "styled-components";
-import { Context } from "../Context";
+import { useSelector } from "react-redux";
 
 function Home() {
-  const { data, setData } = useContext(Context);
+  const data = useSelector((state) => state.comment);
+  console.log(data);
   const [char, setChar] = useState("woody");
   return (
     <>
       <CharTab char={char} setChar={setChar} />
-      <Form data={data} setData={setData} />
+      <Form />
       <div>
         {data
           .filter((comment) => comment.writedTo === char)

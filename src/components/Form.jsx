@@ -1,16 +1,17 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { theme } from "../GlobalStyle";
 import { v4 as uuidv4 } from "uuid";
 import Button from "./Button";
-import { Context } from "../Context";
+import { useDispatch } from "react-redux";
+import { createData } from "../redux/modules/comment";
 
 function Form() {
-  const { data, setData } = useContext(Context);
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const id = uuidv4();
   const selectRef = useRef();
+  const dispatch = useDispatch();
 
   const selectChar = () => {
     const selectedChar = selectRef.current.value;
@@ -38,7 +39,7 @@ function Form() {
       writedTo: selectChar(),
       id,
     };
-    setData([commentObj, ...data]);
+    dispatch(createData(commentObj));
     setName("");
     setContent("");
   };
