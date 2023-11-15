@@ -33,6 +33,11 @@ const CommentBox = styled.div`
   border-radius: 10px;
   box-shadow: ${theme.boxShadow};
   width: 450px;
+  height: 100px;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const StImg = styled.img`

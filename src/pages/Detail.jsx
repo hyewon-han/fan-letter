@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../GlobalStyle";
 import Button from "../components/Button";
+import { Context } from "../Context";
 
-function Detail({ data, setData }) {
+function Detail() {
+  const { data, setData } = useContext(Context);
   const { id } = useParams();
   const comment = data.find((item) => item.id === id);
   const [isInputDisabled, setIsInputDisabled] = useState(true);
@@ -53,7 +55,10 @@ function Detail({ data, setData }) {
               <Button value="삭제" onClick={deleteComment} />
             </>
           ) : (
-            <Button value="수정완료" onClick={updateComment} />
+            <>
+              <Button value="수정완료" onClick={updateComment} />
+              <Button value="취소" onClick={() => setIsInputDisabled(true)} />
+            </>
           )}
         </Btns>
       </CommentBox>
