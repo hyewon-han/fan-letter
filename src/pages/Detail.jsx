@@ -12,6 +12,7 @@ function Detail() {
   const [isInputDisabled, setIsInputDisabled] = useState(true);
   const [textarea, setTextarea] = useState(comment.content);
   const navigate = useNavigate();
+
   const updateComment = () => {
     if (textarea === comment.content) alert("수정사항이 없습니다.");
     else {

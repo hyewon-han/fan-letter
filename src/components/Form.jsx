@@ -16,6 +16,7 @@ function Form() {
     const selectedChar = selectRef.current.value;
     return selectedChar;
   };
+
   const formatDate = () => {
     const date = new Date();
     const year = date.getFullYear();

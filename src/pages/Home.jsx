@@ -8,6 +8,7 @@ import { Context } from "../Context";
 function Home() {
   const { data, setData } = useContext(Context);
   const [char, setChar] = useState("woody");
+
   return (
     <>
       <CharTab char={char} setChar={setChar} />
