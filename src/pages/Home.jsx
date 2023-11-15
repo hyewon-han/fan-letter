@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 function Home() {
   const data = useSelector((state) => state.comment);
-  console.log(data);
+
   const [char, setChar] = useState("woody");
   return (
     <>

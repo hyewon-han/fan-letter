@@ -6,7 +6,6 @@ const DELETE = "comment/DELETE";
 export const createData = (payload) => {
   return { type: CREATE, payload };
 };
-
 export const deleteData = (payload) => {
   return { type: DELETE, payload };
 };
@@ -14,7 +13,6 @@ export const deleteData = (payload) => {
 const initialState = fakeData;
 
 const comment = (state = initialState, action) => {
-  console.log(state);
   switch (action.type) {
     case CREATE:
       return [action.payload, ...state];
