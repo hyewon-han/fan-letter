@@ -11,6 +11,7 @@ function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const comment = data.find((item) => item.id === id);
+
   const [isInputDisabled, setIsInputDisabled] = useState(true);
   const [textarea, setTextarea] = useState(comment.content);
   const navigate = useNavigate();

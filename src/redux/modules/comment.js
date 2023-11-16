@@ -25,8 +25,8 @@ const comment = (state = initialState, action) => {
     case UPDATE:
       return state.map((item) => {
         if (item.id === action.payload.id)
-          item.content = action.payload.textarea;
-        return item;
+          return { ...item, content: action.payload.textarea };
+        else return item;
       });
     default:
       return state;
