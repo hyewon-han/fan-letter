@@ -20,7 +20,6 @@ function Detail() {
     else {
       const result = window.confirm("이대로 수정하시겠습니까?");
       if (result) {
-        // data.find((item) => item.id === id).content = textarea;
         dispatch(updateData({ id, textarea }));
         navigate("/");
       } else return;
