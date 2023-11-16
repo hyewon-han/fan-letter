@@ -18,14 +18,12 @@ function Detail({ data, setData }) {
       if (result) {
         setData(
           data.map((item) => {
-            if (item.id === id) {
-              item.content = textarea;
-            }
+            if (item.id === id) item.content = textarea;
             return item;
           })
         );
         navigate("/");
-      } else return;
+      }
     }
   };
 
@@ -34,7 +32,7 @@ function Detail({ data, setData }) {
     if (result) {
       setData(data.filter((item) => item.id !== id));
       navigate("/");
-    } else return;
+    }
   };
   return (
     <Wrap>
