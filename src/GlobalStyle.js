@@ -7,6 +7,8 @@ body {
     box-sizing: border-box;
     background-image: url("/toy-story.jpg");
     background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
   }
 `;
 
