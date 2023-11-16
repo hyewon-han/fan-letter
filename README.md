@@ -1,4 +1,4 @@
-## fan-letter BOX
+## fan-letter BOX 💌
 
 ### 개요
 
@@ -10,7 +10,6 @@
 - props-drilling : useState Hook만 사용
 - context : useContext Hook 사용
 - redux : redux (전역 상태 관리 라이브러리) 사용
-  👉 같은 기능을 세 개의 방법으로 나누어 구현함.
 
 ### 컴포넌트 분리
 
@@ -22,3 +21,7 @@
 - pages
   - Detail.jsx
   - Home.jsx
+
+### 배포 링크
+
+https://fan-letter.vercel.app/
