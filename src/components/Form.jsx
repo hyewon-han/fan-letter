@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import Button from "./Button";
 import { Context } from "../Context";
 
-function Form() {
+function Form({ setChar }) {
   const { data, setData } = useContext(Context);
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
@@ -14,6 +14,7 @@ function Form() {
 
   const selectChar = () => {
     const selectedChar = selectRef.current.value;
+    setChar(selectRef.current.value);
     return selectedChar;
   };
 

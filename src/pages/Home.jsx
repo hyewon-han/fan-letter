@@ -6,13 +6,13 @@ import styled from "styled-components";
 import { Context } from "../Context";
 
 function Home() {
-  const { data, setData } = useContext(Context);
+  const { data } = useContext(Context);
   const [char, setChar] = useState("woody");
 
   return (
     <>
       <CharTab char={char} setChar={setChar} />
-      <Form data={data} setData={setData} />
+      <Form setChar={setChar} />
       <div>
         {data
           .filter((comment) => comment.writedTo === char)
