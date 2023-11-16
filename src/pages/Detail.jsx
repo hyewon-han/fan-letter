@@ -22,7 +22,7 @@ function Detail() {
       if (result) {
         dispatch(updateData({ id, textarea }));
         navigate("/");
-      } else return;
+      }
     }
   };
 
@@ -31,7 +31,7 @@ function Detail() {
     if (result) {
       dispatch(deleteData(id));
       navigate("/");
-    } else return;
+    }
   };
   return (
     <Wrap>
