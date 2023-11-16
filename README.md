@@ -1,4 +1,4 @@
-## fan-letter BOX 💌
+## Fan-Letter BOX 💌
 
 ### 개요
 
@@ -7,9 +7,9 @@
 
 ### branch
 
-- props-drilling : useState Hook만 사용
-- context : useContext Hook 사용
-- redux : redux (전역 상태 관리 라이브러리) 사용
+- props-drilling : useState Hook만 사용하여 관리
+- context : useContext Hook 사용하여 관리
+- redux : redux (전역 상태 관리 라이브러리) 사용하여 관리
 
 ### 컴포넌트 분리
 
