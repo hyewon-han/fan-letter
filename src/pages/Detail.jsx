@@ -25,7 +25,7 @@ function Detail() {
           })
         );
         navigate("/");
-      } else return;
+      }
     }
   };
 
@@ -34,7 +34,7 @@ function Detail() {
     if (result) {
       setData(data.filter((item) => item.id !== id));
       navigate("/");
-    } else return;
+    }
   };
   return (
     <Wrap>
