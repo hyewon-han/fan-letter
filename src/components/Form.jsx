@@ -28,10 +28,15 @@ function Form() {
     return `${year}.${month}.${day}  ${hours}:${minutes}:${seconds}`;
   };
 
+  const formattedDate = new Intl.DateTimeFormat("ko-KR", {
+    dateStyle: "full",
+    timeStyle: "short",
+  }).format(new Date());
+
   const createComment = (e) => {
     e.preventDefault();
     const commentObj = {
-      createdAt: formatDate(),
+      createdAt: formattedDate,
       name,
       avatar:
         "https://tse2.mm.bing.net/th?id=OIP.Nen6j3vBZdl8g8kzNfoEHQAAAA&pid=Api&P=0&h=220",
