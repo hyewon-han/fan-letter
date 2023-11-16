@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { theme } from "../GlobalStyle";
 import Button from "../components/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteData } from "../redux/modules/comment";
+import { deleteData, updateData } from "../redux/modules/comment";
 
 function Detail() {
   const data = useSelector((state) => state.comment);
@@ -20,7 +20,8 @@ function Detail() {
     else {
       const result = window.confirm("이대로 수정하시겠습니까?");
       if (result) {
-        data.find((item) => item.id === id).content = textarea;
+        // data.find((item) => item.id === id).content = textarea;
+        dispatch(updateData({ id, textarea }));
         navigate("/");
       } else return;
     }
