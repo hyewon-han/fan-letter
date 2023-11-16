@@ -6,7 +6,7 @@ import Button from "./Button";
 import { useDispatch } from "react-redux";
 import { createData } from "../redux/modules/comment";
 
-function Form({ char, setChar }) {
+function Form({ setChar }) {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const id = uuidv4();

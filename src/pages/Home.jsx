@@ -7,12 +7,11 @@ import { useSelector } from "react-redux";
 
 function Home() {
   const data = useSelector((state) => state.comment);
-
   const [char, setChar] = useState("woody");
   return (
     <>
       <CharTab char={char} setChar={setChar} />
-      <Form char={char} setChar={setChar} />
+      <Form setChar={setChar} />
       <div>
         {data
           .filter((comment) => comment.writedTo === char)
