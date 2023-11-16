@@ -18,7 +18,12 @@ function Detail() {
     else {
       const result = window.confirm("이대로 수정하시겠습니까?");
       if (result) {
-        data.find((item) => item.id === id).content = textarea;
+        setData(
+          data.map((item) => {
+            if (item.id === id) item.content = textarea;
+            return item;
+          })
+        );
         navigate("/");
       } else return;
     }
