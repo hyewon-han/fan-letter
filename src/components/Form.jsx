@@ -4,7 +4,7 @@ import { theme } from "../GlobalStyle";
 import { v4 as uuidv4 } from "uuid";
 import Button from "./Button";
 
-function Form({ data, setData }) {
+function Form({ data, setData, setChar }) {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const id = uuidv4();
@@ -12,6 +12,7 @@ function Form({ data, setData }) {
 
   const selectChar = () => {
     const selectedChar = selectRef.current.value;
+    setChar(selectRef.current.value);
     return selectedChar;
   };
   const formatDate = () => {

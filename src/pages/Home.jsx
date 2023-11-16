@@ -9,7 +9,7 @@ function Home({ data, setData }) {
   return (
     <>
       <CharTab char={char} setChar={setChar} />
-      <Form data={data} setData={setData} />
+      <Form data={data} setData={setData} setChar={setChar} />
       <div>
         {data
           .filter((comment) => comment.writedTo === char)
