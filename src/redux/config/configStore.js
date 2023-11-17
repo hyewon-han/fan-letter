@@ -9,8 +9,8 @@ const store = createStore(rootReducer, composeWithDevTools());
 
 export default store;
 
-const onChange = () => {
-  console.log(store.getState());
-};
+// const onChange = () => {
+//   console.log(store.getState());
+// };
 
-store.subscribe(onChange);
+// store.subscribe(onChange);
