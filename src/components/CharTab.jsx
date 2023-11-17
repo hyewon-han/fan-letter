@@ -4,29 +4,26 @@ import { theme } from "../GlobalStyle";
 import Button from "./Button";
 
 function CharTab({ char, setChar }) {
-  const selectChar = (CharName) => {
-    setChar(CharName);
-  };
   return (
     <StDiv>
       <Button
         value="WOODY"
-        onClick={() => selectChar("woody")}
+        onClick={() => setChar("woody")}
         clicked={(char === "woody").toString()}
       />
       <Button
         value="BUZZ"
-        onClick={() => selectChar("buzz")}
+        onClick={() => setChar("buzz")}
         clicked={(char === "buzz").toString()}
       />
       <Button
         value="FORKY"
-        onClick={() => selectChar("forky")}
+        onClick={() => setChar("forky")}
         clicked={(char === "forky").toString()}
       />
       <Button
         value="BOPEEP"
-        onClick={() => selectChar("bopeep")}
+        onClick={() => setChar("bopeep")}
         clicked={(char === "bopeep").toString()}
       />
     </StDiv>

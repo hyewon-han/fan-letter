@@ -20,8 +20,8 @@ function Detail() {
       if (result) {
         setData(
           data.map((item) => {
-            if (item.id === id) item.content = textarea;
-            return item;
+            if (item.id === id) return { ...item, content: textarea };
+            else return item;
           })
         );
         navigate("/");
